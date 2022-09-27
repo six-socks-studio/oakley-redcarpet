@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
+import { Link } from 'react-router-dom'
 
 import reactLogo from '../assets/react.svg'
 import '../App.css'
@@ -32,31 +33,21 @@ function Root() {
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div class="App__canvas">
         <Canvas>
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
+          <Box position={[-1.2, 0, 0]} />
           <Box position={[1.2, 0, 0]} />
         </Canvas>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div class="App__content">
+        <h1>Oakley RedCarpet</h1>
+        <Link to="/control"> Control </Link>
+        <Link to="/front"> Front </Link>
+        <Link to="/side/right"> Side / Right</Link>
+        <Link to="/side/left"> Side / Left </Link>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
