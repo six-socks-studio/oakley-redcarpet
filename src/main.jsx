@@ -14,7 +14,7 @@ import Front from "./routes/Front/Front"
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "",
     element: <Root />,
   },
   {

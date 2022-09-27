@@ -1,12 +1,15 @@
-import React, { useMemo } from "react"
+import React, { useMemo, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useKeenSlider } from "keen-slider/react"
 
 import "keen-slider/keen-slider.min.css"
 import "./Side.css"
 
+import { useSocketIo } from '../../hooks/useSocketIo'
+
 export default () => {
   const { side } = useParams()
+  const { socket } = useSocketIo()
   const [opacities, setOpacities] = React.useState([])
 
   const images = useMemo(() => side === "left" ? [
@@ -21,7 +24,7 @@ export default () => {
     "images/2K/08_Oakley_test_2k-min.jpg",
   ], [side])
 
-  const [sliderRef] = useKeenSlider({
+  const [sliderRef, instanceRef] = useKeenSlider({
     slides: images.length,
     loop: true,
     detailsChanged(s) {
@@ -30,6 +33,19 @@ export default () => {
     },
   })
 
+  useEffect(() => {
+    socket.on("command", (command) => {
+      switch(command) {
+        case 'next':
+          instanceRef.current.next()
+          break
+        case 'prev':
+          instanceRef.current.prev()
+          break
+      }
+    });
+  }, [instanceRef, socket])
+  
   return (
     <div ref={sliderRef} className="side">
       {images.map((src, idx) => (
