@@ -10,15 +10,15 @@ export default () => {
   const [opacities, setOpacities] = React.useState([])
 
   const images = useMemo(() => side === "left" ? [
-    "/images/2K/01_Oakley_test_2k-min.jpg",
-    "/images/2K/02_Oakley_test_2k-min.jpg",
-    "/images/2K/03_Oakley_test_2k-min.jpg",
-    "/images/2K/04_Oakley_test_2k-min.jpg",
+    "images/2K/01_Oakley_test_2k-min.jpg",
+    "images/2K/02_Oakley_test_2k-min.jpg",
+    "images/2K/03_Oakley_test_2k-min.jpg",
+    "images/2K/04_Oakley_test_2k-min.jpg",
   ] : [
-    "/images/2K/05_Oakley_test_2k-min.jpg",
-    "/images/2K/06_Oakley_test_2k-min.jpg",
-    "/images/2K/07_Oakley_test_2k-min.jpg",
-    "/images/2K/08_Oakley_test_2k-min.jpg",
+    "images/2K/05_Oakley_test_2k-min.jpg",
+    "images/2K/06_Oakley_test_2k-min.jpg",
+    "images/2K/07_Oakley_test_2k-min.jpg",
+    "images/2K/08_Oakley_test_2k-min.jpg",
   ], [side])
 
   const [sliderRef] = useKeenSlider({
