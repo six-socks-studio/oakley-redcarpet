@@ -13,7 +13,6 @@ export default ({ scale = Array.from({ length: 50 }, () => 0.5 + Math.random() *
         <OrbitControls />
       </Canvas>
     </Suspense>
-    <Front />
   </div>
 )
 
