@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 
-const socket = io();
+const socket = io('https://socket-oakley.onrender.com');
 
 export const useSocketIo = () => {
   const [isConnected, setIsConnected] = useState(socket.connected);
@@ -11,6 +11,14 @@ export const useSocketIo = () => {
     socket.on('connect', () => {
       setIsConnected(true);
     });
+
+    socket.on('connect', () => {
+      setIsConnected(true);
+    });
+
+    socket.on("connect_error", (error) => {
+      console.log("an error has occurred into connection", error);
+    });  
 
     socket.on('disconnect', () => {
       setIsConnected(false);

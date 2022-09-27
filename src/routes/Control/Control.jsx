@@ -17,11 +17,11 @@ function Control() {
   return (
     <div>
       Status: { isConnected ? 'connected' : 'disconnected' }
-      <div class="controller">
-        <button class="controller__nav" onClick={onPrev}>
+      <div className="controller">
+        <button className="controller__nav" onClick={onPrev}>
           PREV
         </button>
-        <button class="controller__nav" onClick={onNext}>
+        <button className="controller__nav" onClick={onNext}>
           NEXT        </button>
       </div>
     </div>
