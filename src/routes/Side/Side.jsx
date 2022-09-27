@@ -7,21 +7,23 @@ import "./Side.css"
 
 import { useSocketIo } from '../../hooks/useSocketIo'
 
-export default () => {
+export default (props) => {
   const { side } = useParams()
   const { socket } = useSocketIo()
   const [opacities, setOpacities] = React.useState([])
 
+  const resolution = useMemo(() => props.downscale ? '2K' : '4K', [props.downscale])
+
   const images = useMemo(() => side === "left" ? [
-    "/images/2K/01_Oakley_test_2k-min.jpg",
-    "/images/2K/02_Oakley_test_2k-min.jpg",
-    "/images/2K/03_Oakley_test_2k-min.jpg",
-    "/images/2K/04_Oakley_test_2k-min.jpg",
+    `/images/${resolution}/01_Oakley_test-min.jpg`,
+    `/images/${resolution}/02_Oakley_test-min.jpg`,
+    `/images/${resolution}/03_Oakley_test-min.jpg`,
+    `/images/${resolution}/04_Oakley_test-min.jpg`,
   ] : [
-    "/images/2K/05_Oakley_test_2k-min.jpg",
-    "/images/2K/06_Oakley_test_2k-min.jpg",
-    "/images/2K/07_Oakley_test_2k-min.jpg",
-    "/images/2K/08_Oakley_test_2k-min.jpg",
+    `/images/${resolution}/05_Oakley_test-min.jpg`,
+    `/images/${resolution}/06_Oakley_test-min.jpg`,
+    `/images/${resolution}/07_Oakley_test-min.jpg`,
+    `/images/${resolution}/08_Oakley_test-min.jpg`,
   ], [side])
 
   const [sliderRef, instanceRef] = useKeenSlider({
