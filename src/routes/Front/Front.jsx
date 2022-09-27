@@ -1,5 +1,7 @@
-import React, { useEffect, useMemo } from "react"
+import React, { useEffect, useMemo, useRef, useState } from "react"
 import { useKeenSlider } from "keen-slider/react"
+import { gsap } from 'gsap'
+import {  SplitText } from 'gsap/SplitText'
 
 import "keen-slider/keen-slider.min.css"
 import "./Front.css"
@@ -7,9 +9,10 @@ import "./Front.css"
 import { useSocketIo } from '../../hooks/useSocketIo'
 
 export default (props) => {
-  const { socket } = useSocketIo()
-  const [opacities, setOpacities] = React.useState([])
+  const titleRef = useRef()
+  const [opacities, setOpacities] = useState([])
 
+  const { socket } = useSocketIo()
   const resolution = useMemo(() => props.downscale ? '2K' : '4K', [props.downscale])
 
   const [sliderRef, instanceRef] = useKeenSlider({
@@ -34,8 +37,35 @@ export default (props) => {
     });
   }, [instanceRef, socket])
 
+  useEffect(() => {
+    gsap.registerPlugin(SplitText)
+    const mySplitText = new SplitText(titleRef.current, { type: "words,chars" })
+
+    const tl = gsap.timeline()
+
+    tl.fromTo(mySplitText.words, {
+      autoAlpha: 0,
+      yPercent: 10,
+    }, {
+      autoAlpha: 1,
+      yPercent: 0,
+      stagger: 0.06,
+      ease: 'power4.out',
+      duration: 1,
+      delay: 1,
+    })
+
+    tl.to(titleRef.current, {
+      autoAlpha: 0,
+      y: -10,
+      ease: 'power4.out',
+      duration: 1,
+    }, '+=2')
+  }, [titleRef])
+
   return (
     <div ref={sliderRef} className="front">
+      <h1 className="front__title"> <div ref={titleRef}>This is <br /> Six Socks Studio</div> </h1>
       {[0, 0].map((src, idx) => (
         <div
           key={idx}
