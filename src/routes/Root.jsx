@@ -2,9 +2,6 @@ import React, { useRef, useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Link } from 'react-router-dom'
 
-import reactLogo from '../assets/react.svg'
-import '../App.css'
-
 function Box(props) {
   // This reference gives us direct access to the THREE.Mesh object
   const ref = useRef()
@@ -33,7 +30,7 @@ function Root() {
 
   return (
     <div className="App">
-      <div class="App__canvas">
+      <div className="App__canvas">
         <Canvas>
           <ambientLight />
           <pointLight position={[10, 10, 10]} />
@@ -41,8 +38,7 @@ function Root() {
           <Box position={[1.2, 0, 0]} />
         </Canvas>
       </div>
-      <div class="App__content">
-        <h1>Oakley RedCarpet</h1>
+      <div className="App__content">
         <Link to="/control"> Control </Link>
         <Link to="/front"> Front </Link>
         <Link to="/side/right"> Side / Right</Link>
