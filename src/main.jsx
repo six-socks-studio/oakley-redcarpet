@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import "./index.css";
 
-import Root from "./routes/root";
+import Root from "./routes/Root";
 import Control from "./routes/Control/Control"
 import Side from "./routes/Side/Side"
 import Front from "./routes/Front/Front"
