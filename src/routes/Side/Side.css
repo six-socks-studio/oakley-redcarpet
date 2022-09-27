@@ -1,0 +1,23 @@
+.side {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.side__slide {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.side img {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+}
