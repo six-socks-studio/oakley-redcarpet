@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom'
 import io from 'socket.io-client';
 
 const socket = io('https://socket-oakley.onrender.com');
 
 export const useSocketIo = () => {
+  const { room } = useParams()
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [lastPong, setLastPong] = useState(null);
 
   useEffect(() => {
     socket.on('connect', () => {
-      setIsConnected(true);
-    });
+      console.log('pretending to connect into...', room)
+      socket.emit('room', room);
 
-    socket.on('connect', () => {
+      // socket.join(room);
       setIsConnected(true);
     });
 

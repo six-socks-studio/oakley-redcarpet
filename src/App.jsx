@@ -20,43 +20,43 @@ const router = createBrowserRouter([
     element: <Root />,
   },
   {
-    path: "/control",
+    path: "/:room/control",
     element: <Control />,
   },
   {
-    path: "/side/:side",
+    path: "/:room/side/:side",
     element: <Side />,
   },
   {
-    path: "/side/:side/2k",
+    path: "/:room/side/:side/2k",
     element: <Side downscale />,
   },
   {
-    path: "/front",
+    path: "/:room/front",
     element: <Front />,
   },
   {
-    path: "/front/2k",
+    path: "/:room/front/2k",
     element: <Front downscale />,
   },
   {
-    path: "/portal",
+    path: "/:room/portal",
     element: <Portal />,
   },
   {
-    path: "/stacy",
+    path: "/:room/stacy",
     element: <Stacy />,
   },
   {
-    path: "/postfx",
+    path: "/:room/postfx",
     element: <PostFx />,
   },
   {
-    path: "/postfx-front",
+    path: "/:room/postfx-front",
     element: <PostFx withFront />,
   },
   {
-    path: "/postfx-front/2k",
+    path: "/:room/postfx-front/2k",
     element: <PostFx downscale withFront />,
   },
 ]);

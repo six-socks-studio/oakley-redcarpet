@@ -11,7 +11,7 @@ import { useSocketIo } from '../../hooks/useSocketIo'
 export default (props) => {
   const titleRef = useRef()
   const [opacities, setOpacities] = useState([])
-
+  
   const { socket } = useSocketIo()
   const resolution = useMemo(() => props.downscale ? '2K' : '4K', [props.downscale])
 
@@ -26,6 +26,8 @@ export default (props) => {
 
   useEffect(() => {
     socket.on("command", (command) => {
+      console.log('having command...', command)
+
       switch(command) {
         case 'next':
           instanceRef.current.next()
@@ -34,8 +36,12 @@ export default (props) => {
           instanceRef.current.prev()
           break
       }
+
+      return () => {
+        socket.off("command");
+      }
     });
-  }, [instanceRef, socket])
+  }, [instanceRef])
 
   useEffect(() => {
     gsap.registerPlugin(SplitText)
@@ -65,7 +71,7 @@ export default (props) => {
 
   return (
     <div ref={sliderRef} className="front">
-      <h1 className="front__title"> <div ref={titleRef}>This is <br /> Six Socks Studio</div> </h1>
+      <h1 className="front__title"> <div ref={titleRef}>KEY LOOK <br /> #1</div> </h1>
       {[0, 0].map((src, idx) => (
         <div
           key={idx}

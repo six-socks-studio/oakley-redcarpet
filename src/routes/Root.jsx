@@ -42,22 +42,22 @@ function Root() {
 
       <h1> OAKLEY RED CARPET </h1>
       <div className="App__content">
-        <Link to="/control"> Control </Link>
-        <Link to="/front"> Front </Link>
-        <Link to="/side/right"> Side / Right</Link>
-        <Link to="/side/left"> Side / Left </Link>
+        <Link to="/to-stars/control"> Control </Link>
+        <Link to="/to-stars/front"> Front </Link>
+        <Link to="/to-stars/side/right"> Side / Right</Link>
+        <Link to="/to-stars/side/left"> Side / Left </Link>
         <br />
         WebGL performance stress
-        <Link to="/portal"> Portal </Link>
-        <Link to="/stacy"> Stacy </Link>
-        <Link to="/postfx"> PostFx </Link>
-        <Link to="/postfx-front"> PostFx with Front </Link>
+        <Link to="/to-stars/portal"> Portal </Link>
+        <Link to="/to-stars/stacy"> Stacy </Link>
+        <Link to="/to-stars/postfx"> PostFx </Link>
+        <Link to="/to-stars/postfx-front"> PostFx with Front </Link>
         <br />
         Downscales
-        <Link to="/front/2k"> Front 2K </Link>
-        <Link to="/side/right/2k"> Side / Right 2K</Link>
-        <Link to="/side/left/2k"> Side / Left 2K</Link>
-        <Link to="/postfx-front/2k"> PostFx with Front 2K </Link>
+        <Link to="/to-stars/front/2k"> Front 2K </Link>
+        <Link to="/to-stars/side/right/2k"> Side / Right 2K</Link>
+        <Link to="/to-stars/side/left/2k"> Side / Left 2K</Link>
+        <Link to="/to-stars/postfx-front/2k"> PostFx with Front 2K </Link>
       </div>
     </div>
   )

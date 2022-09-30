@@ -37,6 +37,8 @@ export default (props) => {
 
   useEffect(() => {
     socket.on("command", (command) => {
+      console.log('having command...', command)
+
       switch(command) {
         case 'next':
           instanceRef.current.next()
@@ -45,8 +47,12 @@ export default (props) => {
           instanceRef.current.prev()
           break
       }
+
+      return () => {
+        socket.off("command");
+      }
     });
-  }, [instanceRef, socket])
+  }, [instanceRef])
 
   return (
     <div ref={sliderRef} className="side">
