@@ -1,7 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react"
 import { useKeenSlider } from "keen-slider/react"
-import { gsap } from 'gsap'
-import {  SplitText } from 'gsap/SplitText'
 
 import "keen-slider/keen-slider.min.css"
 import "./Front.css"
@@ -44,34 +42,34 @@ export default (props) => {
   }, [instanceRef])
 
   useEffect(() => {
-    gsap.registerPlugin(SplitText)
-    const mySplitText = new SplitText(titleRef.current, { type: "words,chars" })
+    // gsap.registerPlugin(SplitText)
+    // const mySplitText = new SplitText(titleRef.current, { type: "words,chars" })
 
-    const tl = gsap.timeline()
+    // const tl = gsap.timeline()
 
-    tl.fromTo(mySplitText.words, {
-      autoAlpha: 0,
-      yPercent: 10,
-    }, {
-      autoAlpha: 1,
-      yPercent: 0,
-      stagger: 0.06,
-      ease: 'power4.out',
-      duration: 1,
-      delay: 1,
-    })
+    // tl.fromTo(mySplitText.words, {
+    //   autoAlpha: 0,
+    //   yPercent: 10,
+    // }, {
+    //   autoAlpha: 1,
+    //   yPercent: 0,
+    //   stagger: 0.06,
+    //   ease: 'power4.out',
+    //   duration: 1,
+    //   delay: 1,
+    // })
 
-    tl.to(titleRef.current, {
-      autoAlpha: 0,
-      y: -10,
-      ease: 'power4.out',
-      duration: 1,
-    }, '+=2')
+    // tl.to(titleRef.current, {
+    //   autoAlpha: 0,
+    //   y: -10,
+    //   ease: 'power4.out',
+    //   duration: 1,
+    // }, '+=2')
   }, [titleRef])
 
   return (
     <div ref={sliderRef} className="front">
-      <h1 className="front__title"> <div ref={titleRef}>KEY LOOK <br /> #1</div> </h1>
+      <h1 className="front__title" style={{display: 'none'}}> <div ref={titleRef}>KEY LOOK <br /> #1</div> </h1>
       {[0, 0].map((src, idx) => (
         <div
           key={idx}

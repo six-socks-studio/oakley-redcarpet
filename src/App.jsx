@@ -13,6 +13,7 @@ import Front from "./routes/Front/Front"
 import Portal from "./routes/Portal/Portal"
 import Stacy from "./routes/Stacy/Stacy"
 import PostFx from "./routes/PostFx/PostFx"
+import Look from "./routes/Look/Look"
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
     path: "/:room/postfx-front/2k",
     element: <PostFx downscale withFront />,
   },
+  {
+    path: "/:room/look",
+    element: <Look />
+  }
 ]);
 
 export default () => (
